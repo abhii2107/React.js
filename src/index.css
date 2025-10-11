@@ -1,0 +1,147 @@
+/* --- Existing styles remain unchanged --- */
+
+/* Series Card Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: #f8f9fa;
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+
+.series-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 2rem;
+}
+
+.series-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 2rem;
+  text-align: left;
+  transition: box-shadow 0.3s;
+}
+
+.series-card:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+
+.series-card img {
+  border-radius: 0.5rem;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.series-card h2 {
+  margin: 0.5rem 0 0.2rem 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.series-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.series-card p {
+  margin: 0.3rem 0;
+  color: #444;
+}
+
+.series-card button {
+  background: #646cff;
+  color: #fff;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.6em 1.2em;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+
+.series-card button:hover {
+  background: #4b52c7;
+}
+
+.grid{
+  display: grid;
+  gap: 9.8rem;
+}
+
+.grid-two-cols{
+  grid-template-columns: repeat(2,1fr);
+}
+
+.grid-three--cols{
+  grid-template-columns: repeat(3,1fr);
+}
+
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+  padding: 2rem;
+  margin: 1rem 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+
+.card img {
+  border-radius: 0.5rem;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.card-content {
+  width: 100%;
+  text-align: left;
+}
+
+.card-content h2 {
+  margin: 0.5rem 0 0.2rem 0;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.card-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.card-content p {
+  margin: 0.3rem 0;
+  color: #444;
+}
+
+.card-content button {
+  background: #646cff;
+  color: #fff;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.6em 1.2em;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+
+.card-content button:hover {
+  background: #4b52c7;
+}
