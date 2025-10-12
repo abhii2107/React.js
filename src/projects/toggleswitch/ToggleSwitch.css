@@ -1,0 +1,55 @@
+/* Center the entire switch in the screen */
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4; /* soft neutral background */
+  font-family: sans-serif;
+}
+
+/* The outer container */
+.toggle-switch {
+  width: 100px;
+  height: 50px;
+  background-color: #ccc; /* default gray when OFF */
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* The circular knob */
+.switch {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* When ON – move to right */
+.switch.ON {
+  left: 55px;
+}
+
+/* Label text inside the knob */
+.switch-state {
+  font-size: 10px;
+  font-weight: bold;
+  color: #333;
+  user-select: none;
+}
