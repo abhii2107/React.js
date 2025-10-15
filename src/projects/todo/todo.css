@@ -1,0 +1,151 @@
+/* todo.css
+   Clean, modern and unique styles for the Todo component
+*/
+
+:root{
+  /* Vibrant palette for high contrast on white backgrounds */
+  --bg: #ffffff; /* page background (white) */
+  --card-1: #fff7ed; /* warm amber card */
+  --card-2: #f0f9ff; /* cool cyan card */
+  --accent: #ff6b6b; /* coral */
+  --accent-2: #6b8cff; /* cobalt */
+  --accent-3: #7c4dff; /* vivid violet */
+  --text-strong: #0f172a; /* near black for strong contrast */
+  --muted: #334155; /* slate-700 */
+  --glass: rgba(15,23,42,0.04);
+  --danger: #ef4444;
+}
+
+/* Container */
+.todo-container{
+  min-height: 420px;
+  max-width: 720px;
+  margin: 28px auto;
+  padding: 24px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--card-1), var(--card-2));
+  box-shadow: 0 10px 30px rgba(14,22,42,0.08);
+  color: var(--text-strong);
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  border: 1px solid rgba(14,22,42,0.06);
+}
+
+/* Header */
+.todo-container header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom: 18px;
+}
+.todo-container header h1{
+  margin:0;
+  font-size: 20px;
+  color: var(--text-strong);
+  letter-spacing: -0.2px;
+}
+
+/* Form */
+.todo-container .form{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom: 18px;
+}
+.todo-container .form form{
+  display:flex;
+  width:100%;
+  gap:12px;
+  align-items:center;
+}
+.todo-input{
+  flex:1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(14,22,42,0.06);
+  color: var(--text-strong);
+  font-size: 14px;
+  transition: box-shadow 160ms ease, transform 120ms ease;
+}
+.todo-input::placeholder{ color: rgba(51,65,85,0.45); }
+.todo-input:focus{
+  outline: none;
+  box-shadow: 0 8px 26px rgba(108,99,255,0.14);
+  transform: translateY(-2px);
+  border-color: var(--accent-3);
+}
+
+.todo-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-3));
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(124,58,237,0.12);
+  transition: transform 160ms cubic-bezier(.2,.9,.3,1), box-shadow 160ms ease;
+}
+.todo-btn:hover{ transform: translateY(-3px); box-shadow: 0 18px 36px rgba(124,58,237,0.12); }
+.todo-btn:active{ transform: translateY(-1px) scale(0.995); }
+
+/* List */
+.myorderlist ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+.todo-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(255,255,255,0.95));
+  border: 1px solid rgba(14,22,42,0.06);
+  color: var(--text-strong);
+  font-size: 14px;
+  box-shadow: 0 6px 18px rgba(14,22,42,0.06);
+  transform-origin: left center;
+  animation: itemIn 320ms cubic-bezier(.2,.85,.25,1) both;
+}
+
+@keyframes itemIn{
+  from{ opacity: 0; transform: translateY(-6px) scale(.995); }
+  to{ opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.todo-item span{ flex:1; color: var(--text-strong); font-weight:600 }
+
+/* Buttons inside each list item */
+.todo-item .check-btn, .todo-item .delete-btn{
+  display:inline-grid; place-items:center;
+  width:42px; height:42px; border-radius:12px; border: none; cursor:pointer;
+  transition: background 160ms ease, transform 120ms ease, color 160ms ease;
+}
+.todo-item .check-btn{
+  color: white;
+  background: linear-gradient(135deg, #34d399, #10b981); /* vivid green */
+  box-shadow: 0 8px 20px rgba(16,185,129,0.12);
+}
+.todo-item .check-btn:hover{ transform: translateY(-3px); background: linear-gradient(135deg, #2dd4bf, #06b6d4); }
+
+.todo-item .delete-btn{
+  color: white;
+  background: linear-gradient(135deg, #ff7a7a, #ff6b6b); /* coral */
+  box-shadow: 0 8px 20px rgba(255,107,107,0.08);
+}
+.todo-item .delete-btn:hover{ transform: translateY(-3px); background: linear-gradient(135deg,#ff8a6b,#ff6b6b); }
+
+/* Empty state */
+.myorderlist ul:empty{
+  opacity: 0.8;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width:540px){
+  .todo-container{ margin:18px; padding:18px; border-radius:12px; }
+  .todo-btn{ padding:10px; font-size:13px; }
+  .todo-item{ padding:10px; }
+}
