@@ -44,6 +44,25 @@
   letter-spacing: -0.2px;
 }
 
+/* Date/time below the main heading: make it take full row in the header
+   so it appears underneath the H1 while keeping a pill, colorful look */
+.date-time{
+  flex-basis: 100%; /* forces line-break in the header flex row */
+  margin-top: 8px;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-strong);
+  background: linear-gradient(90deg, rgba(124,77,255,0.12), rgba(107,140,255,0.10));
+  padding: 6px 10px;
+  border-radius: 10px;
+  align-self: flex-start;
+  box-shadow: 0 6px 18px rgba(14,22,42,0.06);
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+.date-time:hover{ transform: translateY(-3px); box-shadow: 0 14px 36px rgba(14,22,42,0.08); }
+
+
 /* Form */
 .todo-container .form{
   display:flex;

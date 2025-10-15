@@ -2,37 +2,48 @@ import "./todo.css"
 import React, { useState } from "react"
 import { MdCheckCircle } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
-export const Todo = ()=>{
-    const[inputvalue,setInputValue] = useState("");
-    const[task,setTask] = useState([]);
+export const Todo = () => {
+    const [inputvalue, setInputValue] = useState("");
+    const [task, setTask] = useState([]);
+    const [datetime, setDateTime] = useState("");
 
-    const handleInputChange = (value)=>{
+    const handleInputChange = (value) => {
         setInputValue(value);
     }
-    const handleFormSubmit  = (event)=>{
+    const handleFormSubmit = (event) => {
         event.preventDefault();
-        if(!inputvalue) return;
-        if(task.includes("inputvalue")){
+        if (!inputvalue) return;
+        if (task.includes("inputvalue")) {
             setInputValue("");
             return;
         };
-        setTask((prevTask) => [... prevTask,inputvalue])
+        setTask((prevTask) => [...prevTask, inputvalue])
         // ... spread operator strore all prevtask in the arr and inputvalue 
         setInputValue("");
     }
-    return(
+
+    //todo date and time
+    const interval = setInterval(() => {
+        const now = new Date();
+        const FormattedDate = now.toLocaleDateString();
+        const FormattedTime = now.toLocaleTimeString();
+        setDateTime(`${FormattedDate} - ${FormattedTime}`)
+    }, 1000);
+
+
+    return (
         <section className="todo-container">
             <header>
                 <h1>Todo List</h1>
-                <h2 className="da te-time"> Date-time</h2>
+                <h2 className="date-time"> {datetime}</h2>
             </header>
             <section className="form">
                 <form onSubmit={handleFormSubmit}>
                     <div>
                         <input type="text"
-                         className="todo-input" b 
-                         value={inputvalue}
-                         onChange={(event) => handleInputChange(event.target.value)}
+                            className="todo-input" b
+                            value={inputvalue}
+                            onChange={(event) => handleInputChange(event.target.value)}
                         />
                     </div>
                     <div>
@@ -45,11 +56,11 @@ export const Todo = ()=>{
             <section className="myorderlist">
                 <ul>
                     {
-                        task.map((currelem,index) => {
+                        task.map((currelem, index) => {
                             return <li key={index} className="todo-item">
                                 <span>{currelem}</span>
-                                <button className="check-btn"><MdCheckCircle/></button>
-                                <button className="delete-btn"><MdDelete/></button>
+                                <button className="check-btn"><MdCheckCircle /></button>
+                                <button className="delete-btn"><MdDelete /></button>
                             </li>
                         })
                     }
