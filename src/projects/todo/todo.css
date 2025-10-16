@@ -111,6 +111,29 @@
 .todo-btn:hover{ transform: translateY(-3px); box-shadow: 0 18px 36px rgba(124,58,237,0.12); }
 .todo-btn:active{ transform: translateY(-1px) scale(0.995); }
 
+/* Clear all tasks button - outlined / ghost style */
+.clear-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:10px;
+  background: transparent;
+  color: var(--text-strong);
+  border: 1.5px solid rgba(14,22,42,0.08);
+  cursor: pointer;
+  font-weight:700;
+  transition: background 160ms ease, color 160ms ease, transform 120ms ease, box-shadow 160ms ease;
+}
+.clear-btn:hover{
+  background: linear-gradient(90deg, rgba(124,77,255,0.06), rgba(107,140,255,0.06));
+  color: var(--text-strong);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(14,22,42,0.06);
+}
+.clear-btn:active{ transform: translateY(-1px); }
+
+
 /* List */
 .myorderlist ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
 .todo-item{

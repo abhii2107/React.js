@@ -21,6 +21,14 @@ export const Todo = () => {
         // ... spread operator strore all prevtask in the arr and inputvalue 
         setInputValue("");
     }
+    const handleDeleteTodo = (value)=>{
+        console.log(value);
+        const updatedTask = task.filter((currelem) => currelem !== value);
+        setTask(updatedTask);
+    }
+    const handleClearTodoData = ()=>{
+        setTask([]);
+    }
 
     //todo date and time
     const interval = setInterval(() => {
@@ -60,12 +68,17 @@ export const Todo = () => {
                             return <li key={index} className="todo-item">
                                 <span>{currelem}</span>
                                 <button className="check-btn"><MdCheckCircle /></button>
-                                <button className="delete-btn"><MdDelete /></button>
+                                <button className="delete-btn" onClick={() =>handleDeleteTodo(currelem)}><MdDelete /></button>
                             </li>
                         })
                     }
                 </ul>
             </section>
+             <section>
+                
+                <button className="clear-btn" onClick={handleClearTodoData}>Clear All</button>
+                </section>       
+
         </section>
     )
 }
