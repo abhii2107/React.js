@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
 export const TodoForm = ({onAddTodo}) => {
-    const [inputvalue, setInputValue] = useState("");
+    const [inputvalue, setInputValue] = useState({});
     const handleInputChange = (value) => {
-        setInputValue(value);
+        setInputValue({id: value, content: value, checked: false});  
     }
    const handleFormSubmit = (event)=>{
         event.preventDefault();
         onAddTodo(inputvalue);
-        setInputValue("");
+        setInputValue({id: "", content: "", checked: false});
    }
     return (
         <section className="form">
@@ -16,7 +16,7 @@ export const TodoForm = ({onAddTodo}) => {
                 <div>
                     <input type="text"
                         className="todo-input" b
-                        value={inputvalue}
+                        value={inputvalue.content}
                         onChange={(event) => handleInputChange(event.target.value)}
                     />
                 </div>

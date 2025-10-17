@@ -10,25 +10,47 @@ export const Todo = () => {
 
 
     const handleFormSubmit = (inputvalue) => {
+        const { id, content, checked } = inputvalue;
+        if (!content) return;
+        // to check that data is alreadu present or not
+        // if (task.includes(inputvalue)) {
+        //     return;
+        // };
+        const ifTodoContentMatched = task.find((currtask) =>
+            currtask.content == content
+        );
+        if (ifTodoContentMatched) return;
 
-        if (!inputvalue) return;
-        if (task.includes(inputvalue)) {
-            return;
-        };
-        setTask((prevTask) => [...prevTask, inputvalue])
+        setTask((prevTask) => [...prevTask, {id,content,checked}])
         // ... spread operator strore all prevtask in the arr and inputvalue 
 
     }
     const handleDeleteTodo = (value) => {
-        console.log(value);
-        const updatedTask = task.filter((currelem) => currelem !== value);
+       
+        const updatedTask = task.filter((currelem) => currelem.content !== value);
         setTask(updatedTask);
     }
+    // handle clear todo data
     const handleClearTodoData = () => {
         setTask([]);
     }
 
     //todo date and time
+
+    // todo handlechecked functionality
+    const handleCheckedTodo = (content)=>{
+        const updatedTask = content.map((currtask)=>{
+            if(currtask.content == content){
+                //agar trur hai toh false kar doo and vice versa
+                return{...currtask,checked: !currtask.checked};
+            }
+            else{
+                return currtask;
+            }
+        })
+        setTask(updatedTask);
+    }
+    
 
 
 
@@ -43,9 +65,12 @@ export const Todo = () => {
             <section className="myorderlist">
                 <ul>
                     {
-                        task.map((currelem, index) => {
+                        task.map((currelem) => {
                             return (
-                                <TodoList key={index} data={currelem} onHandleDeleteTodo={handleDeleteTodo} />
+                                <TodoList key={currelem.id} data={currelem.content} checked = {currelem.checked} onHandleDeleteTodo={handleDeleteTodo}
+                                onhandleCheckedTodo = {handleCheckedTodo}
+                                
+                                />
 
                             );
                         })

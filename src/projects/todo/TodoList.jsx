@@ -1,11 +1,13 @@
-import { MdCheckCircle } from "react-icons/md";
+import { MdCheckCircle, MdRemoveCircleOutline } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import React from "react";
-export const TodoList = ({key,data,onHandleDeleteTodo}) => {
+export const TodoList = ({data,onHandleDeleteTodo,onhandleCheckedTodo,checked}) => {
     return (
-        <li key={key} className="todo-item">
-            <span>{data}</span>
-            <button className="check-btn"><MdCheckCircle /></button>
+        <li  className="todo-item">
+            <span className= {checked ? "checkList" : "notCheckList"}>{data}</span>
+            <button className="check-btn" onClick={()=>onhandleCheckedTodo(data)}>
+                {checked ? <MdRemoveCircleOutline /> : <MdCheckCircle />}
+            </button>
             <button
              className="delete-btn" 
              onClick={() => onHandleDeleteTodo(data)}><MdDelete /></button>

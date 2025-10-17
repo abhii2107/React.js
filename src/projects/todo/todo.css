@@ -159,6 +159,33 @@
 
 .todo-item span{ flex:1; color: var(--text-strong); font-weight:600 }
 
+/* Checked vs not-checked states */
+.checkList{
+  color: rgba(15,23,42,0.45); /* muted text */
+  text-decoration: line-through;
+  opacity: 0.9;
+  position: relative;
+  transition: color 180ms ease, transform 160ms ease, opacity 160ms ease;
+}
+.checkList::before{
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width:6px; height:34px; border-radius:4px;
+  background: linear-gradient(180deg,#34d399,#06b6d4); /* green accent bar */
+  box-shadow: 0 6px 14px rgba(16,185,129,0.08);
+}
+
+.notCheckList{
+  color: var(--text-strong);
+  text-decoration: none;
+  font-weight:700;
+  transition: transform 140ms ease, color 140ms ease;
+}
+.notCheckList:hover{ transform: translateY(-2px); color: var(--accent-3); }
+
 /* Buttons inside each list item */
 .todo-item .check-btn, .todo-item .delete-btn{
   display:inline-grid; place-items:center;
