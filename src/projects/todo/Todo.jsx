@@ -1,11 +1,22 @@
 import "./todo.css"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { TodoDate } from "./TodoDate";
 import { TodoForm } from "./TodoForm";
 import { TodoList } from "./TodoList";
+ // now we want that it should intialze the use state with the data that was previosly stored in the local; storage
+    const todokey = "reactTodo";
 export const Todo = () => {
-
-    const [task, setTask] = useState([]);
+    const [task, setTask] = useState(()=>{
+        try{
+            const rawTodo = localStorage.getItem(todokey);
+            if (rawTodo === null) return [];
+            // defend against string "undefined" or invalid json
+            const parsed = JSON.parse(rawTodo);
+            return Array.isArray(parsed) ? parsed : [];
+        } catch {
+            return [];
+        }
+    });
 
 
 
@@ -20,11 +31,21 @@ export const Todo = () => {
             currtask.content == content
         );
         if (ifTodoContentMatched) return;
-
-        setTask((prevTask) => [...prevTask, {id,content,checked}])
         // ... spread operator strore all prevtask in the arr and inputvalue 
+        setTask((prevTask) => [...prevTask, {id,content,checked}])
+        
 
     }
+    // persist tasks to localStorage whenever they change
+    useEffect(() => {
+        try{
+            localStorage.setItem(todokey, JSON.stringify(task));
+        } catch {
+            // ignore write errors (quota, etc.)
+        }
+    }, [task]);
+
+    // delete todo
     const handleDeleteTodo = (value) => {
        
         const updatedTask = task.filter((currelem) => currelem.content !== value);
@@ -39,14 +60,12 @@ export const Todo = () => {
 
     // todo handlechecked functionality
     const handleCheckedTodo = (content)=>{
-        const updatedTask = content.map((currtask)=>{
+        const updatedTask = task.map((currtask)=>{
             if(currtask.content == content){
-                //agar trur hai toh false kar doo and vice versa
-                return{...currtask,checked: !currtask.checked};
+                // toggle checked
+                return {...currtask, checked: !currtask.checked};
             }
-            else{
-                return currtask;
-            }
+            return currtask;
         })
         setTask(updatedTask);
     }
