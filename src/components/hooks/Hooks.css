@@ -18,6 +18,32 @@
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
 }
 
+/* generic container helper */
+.container{
+  padding: 18px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.9));
+  border: 1px solid rgba(14,22,42,0.04);
+}
+
+/* state-container: shows current user/login state or messages */
+.state-container{
+  margin-top: 14px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.state-container .badge{
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-weight:700;
+  font-size:13px;
+  color: #fff;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  box-shadow: 0 8px 24px rgba(124,77,255,0.10);
+}
+
+
 .short-container h1{
   margin: 0 0 8px 0;
   font-size: 20px;
