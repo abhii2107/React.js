@@ -1,0 +1,237 @@
+/* pokemon.css */
+
+/* ===========================
+   GLOBAL CONTAINER
+=========================== */
+.container {
+  background: linear-gradient(135deg, #f8d030, #f05030);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: "Poppins", sans-serif;
+  color: #2c2c2c;
+}
+
+/* ===========================
+   HEADER STYLING
+=========================== */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 2px 2px #2a75bb;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ffcb05, #3b4cca);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+/* ===========================
+   LOADING AND ERROR STATES
+=========================== */
+.loading,
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  flex-direction: column;
+  text-align: center;
+}
+
+.loading h1 {
+  font-size: 2rem;
+  color: #3b4cca;
+  animation: pulse 1.5s infinite;
+}
+
+.error h1 {
+  font-size: 1.8rem;
+  color: #e63946;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* ===========================
+   CARD LIST
+=========================== */
+.card-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ===========================
+   POKÉMON CARD
+=========================== */
+.pokemon-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 4px solid #ffcb05;
+  position: relative;
+  text-transform: capitalize;
+}
+
+/* Pokéball accent */
+.pokemon-card::before {
+  content: "";
+  position: absolute;
+  top: -45px;
+  right: -45px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 40% 40%, #ff0000 45%, #fff 45%);
+  border: 4px solid #000;
+  border-radius: 50%;
+  opacity: 0.1;
+  transform: rotate(25deg);
+}
+
+/* Hover effect */
+.pokemon-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  border-color: #3b4cca;
+}
+
+/* ===========================
+   IMAGE AREA
+=========================== */
+.pokemon-card figure {
+  height: 200px;
+  background: linear-gradient(145deg, #3b4cca, #2a75bb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid #ffcb05;
+  position: relative;
+}
+
+.pokemon-img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.pokemon-card:hover .pokemon-img {
+  transform: scale(1.1);
+}
+
+/* Shine animation */
+.pokemon-card figure::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75px;
+  width: 50px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -75px;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+/* ===========================
+   NAME AND INFO SECTION
+=========================== */
+.pokemon-card h1 {
+  font-size: 1.8rem;
+  color: #3b4cca;
+  text-align: center;
+  padding: 12px;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #ffcb05;
+}
+
+/* ===========================
+   GRID FOR HEIGHT/WEIGHT/SPEED
+=========================== */
+.grid-three-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 15px;
+  text-align: center;
+  gap: 5px;
+  background: #f6f8fc;
+  border-top: 2px solid #eee;
+}
+
+.pokemon-info {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.pokemon-info span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2a75bb;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+@media (max-width: 600px) {
+  .pokemon-card {
+    width: 220px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .pokemon-card h1 {
+    font-size: 1.4rem;
+  }
+
+  .pokemon-img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .grid-three-cols {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}

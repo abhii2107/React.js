@@ -1,13 +1,11 @@
 import React from "react";
+import { HowNotToFetchApi } from "./components/hooks/UseEffect/HowNotToFetchApi";
 
-import { ProRegistration } from "./components/hooks/usestate/ProRegistration";
-import { LoginForm } from "./components/hooks/usestate/LoginForm";
-import { ContactForm } from "./components/hooks/usestate/ContactForm";
 export const App = () => {
   return (
     <section className="container">
-      
-     <ContactForm/>
+     <HowNotToFetchApi/> 
+     
     </section>
   );
 };
