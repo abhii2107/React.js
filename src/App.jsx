@@ -1,11 +1,6 @@
 import React from "react";
-import { HowNotToFetchApi } from "./components/hooks/UseEffect/HowNotToFetchApi";
 
+import { UseRef } from "./components/hooks/useRefs";
 export const App = () => {
-  return (
-    <section className="container">
-     <HowNotToFetchApi/> 
-     
-    </section>
-  );
+  return <UseRef />;
 };
