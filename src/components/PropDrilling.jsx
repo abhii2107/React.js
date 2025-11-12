@@ -1,5 +1,6 @@
 import React from "react"
 export const ParentComponent = () => {
+    // we will use context api instead of prop drilling as it is not efficient we can pass datra manually 
     return (
         <div>
             <h1>HEllo ParentComponent</h1>
