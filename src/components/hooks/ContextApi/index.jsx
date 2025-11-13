@@ -21,7 +21,7 @@ export const BioProvider = ({children})=>{
 }
 
 //coustom hooks
- export const useBioContext =()=>{
+ export const useBioContext =()=>{     
     //usecontext can't be useed conditionally
     // use can be used in conditions
     const context = use(BioContext);
